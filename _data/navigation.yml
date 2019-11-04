@@ -1,9 +1,9 @@
 main:
-  - title: "Posts"
-    url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
+  - title: "Software"
+    url: /software_projects/
+  - title: "Hardware"
+    url: /hardware_projects/
+  - title: "Machine learning"
+    url: /ml/
   - title: "About"
     url: /about/

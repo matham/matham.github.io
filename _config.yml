@@ -13,28 +13,31 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
-email:
+title: Matthew Einhorn
+email: moiein2000@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
+  Website for personal and work projects and my blog
+twitter_username:
+github_username: matham
+minimal_mistakes_skin: dark
 search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: "mmistakes/minimal-mistakes@4.16.6"
+repository: matham/matham.github.io
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+paginate_path: /blog/page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+  - _software_projects
+  - _hardware_projects
+  - _ml
+  - _portfolio
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -58,34 +61,22 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Matthew Einhorn"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "I'm curious about the world."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://matham.dev"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/matham"
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/matham"
 
 defaults:
   # _posts
@@ -106,6 +97,53 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: false
+      share: false
+  # _ml
+  - scope:
+      path: ""
+      type: ml
+    values:
+      layout: single
+      author_profile: false
+      share: false
+  # _hardware_projects
+  - scope:
+      path: ""
+      type: hardware_projects
+    values:
+      layout: single
+      author_profile: true
+      classes: wide
+      share: false
+  # _software_projects
+  - scope:
+      path: ""
+      type: software_projects
+    values:
+      layout: single
+      author_profile: true
+      classes: wide
+      share: false
+
+# Collections
+collections:
+  ml:
+    output: true
+    permalink: /:collection/:path/
+  software_projects:
+    output: true
+    permalink: /:collection/:path/
+  hardware_projects:
+    output: true
+    permalink: /:collection/:path/
+
 
 category_archive:
   type: liquid
