@@ -1,7 +1,7 @@
 ---
 title: "Machine learning Projects"
 layout: collection
-entries_layout: grid
+entries_layout: image_list
 collection: ml
 permalink: /ml/
 ---

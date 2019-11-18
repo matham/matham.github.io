@@ -1,40 +1,40 @@
 ---
 title: "FFPyPlayer: Python media player/writer library"
-excerpt: "[FFPyPlayer](https://github.com/matham/ffpyplayer) is a Python *(and Cython)* media player and writer, supporting media files, webcams, etc. It is open source and based on FFmpeg."
+excerpt: "[FFPyPlayer](https://github.com/matham/ffpyplayer) is a Python media player, supporting media files, webcams, etc. It is open source and based on FFmpeg."
 header:
   overlay_color: "#333"
 ---
 
-[FFPyPlayer](https://github.com/matham/ffpyplayer) is a open source FFmpeg based Python media player that supports playing media files, USB cams, ethernet cams. It is written in Cython to get c-level performance with ease of use of Python. See the [documentation](https://matham.github.io/ffpyplayer/index.html) for full details.
+[FFPyPlayer](https://github.com/matham/ffpyplayer) is a open source **FFmpeg** based **Python** media player that supports playing media files, USB cams, ethernet cams. It is written in **Cython** to get **c**-level performance with ease of use of Python. See the [documentation](https://matham.github.io/ffpyplayer/index.html) for full details.
 
-[Kivy](kivy.org) uses FFPyPlayer as their video/audio backend on iOS and Android and supports it as a optional backend on all other platforms. 
+[Kivy](kivy.org) uses FFPyPlayer as its video/audio backend on iOS and Android and supports it as a optional backend on all other platforms.
 
-## Background
+## Technology
+
+The player in FFPyPlayer is a **python/cython** port of ffplay (written in C) that I implemented using **OOP** and meets all the requirements below. It is **high performance**, including **zero frame copying** after decoding. 
+
+The **image utilities** and **media writer** is an OOP interface to the FFmpeg low-level C-API. It currently only supports video and no audio.
+
+FFPyPlayer supports:
+
+* Direct show devices such as **USB cams**, on Windows. A list of available cameras can be queried.
+* **Web cameras** such as ethernet cameras and any **other media sources** supported by FFmpeg.
+* Reading video sources with **zero-copying** of the image data.
+* Filtering the media being played with any of the **FFmpeg filters**.
+* **Image utilities** to convert between image formats. E.g. `yuv420p` -> `RGBA`.
+* **Writing** to a video file.
+
+## Requirements
 
 Working in a neuroscience lab, we needed a lightweight and Pythonic way to read video from webcams and other media sources and to record them to disk. E.g. in one experiment, we needed to record animal behavior from 8 cameras simultaneously without losing any frames. Some requirements were:
 
 * A Python interface.
 * Playing webcams (USB, ethernet) and video files.
-* Re-playing video should generate identical frame timestamps every time (for reliable animal behavior coding).
+* Re-playing video should generate identical frames every time (for reliable animal behavior coding).
 * Convert between image formats, e.g. `yuv420p` -> `RGBA`.
 * Write to video files, with optional compression.
 
-[FFmpeg](https://www.ffmpeg.org/), likely the most commonly used media library, provides a C-API that meets all these needs. It has a demo ffplay implementation to play media.
-
-## FFPyPlayer
-
-The player in FFPyPlayer is a python/cython port of ffplay implemented using OOP that meets all the requirements. It is high performance, including zero frame copying after decoding. 
-
-The image utilities and media writer is an OOP interface to the FFmpeg low-level C-API. It currently only supports video and no audio.
-
-FFPyPlayer supports:
-
-* Direct show devices such as USB cams, on Windows. A list of available cameras can be queried.
-* Web cameras such as ethernet cameras and any media sources supported by FFmpeg.
-* Reading video sources with zero-copying of the image data.
-* Filtering the media being played with any of the FFmpeg filters.
-* Image methods to convert between image formats. E.g. `yuv420p` -> `RGBA`.
-* Writing to a video file.
+[FFmpeg](https://www.ffmpeg.org/), likely the most commonly used media library, provides a C-API that meets all these needs. It has a demo ffplay implementation to play media from which FFPyPlayer is ported.
 
 
 ## Example usage

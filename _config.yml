@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Website for personal and work projects and my blog
 twitter_username:
 github_username: matham
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: air
 search: true
 
 # Build settings
@@ -103,7 +103,7 @@ defaults:
       type: portfolio
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: false
   # _ml
   - scope:
@@ -111,7 +111,8 @@ defaults:
       type: ml
     values:
       layout: single
-      author_profile: false
+      author_profile: true
+      classes: wide
       share: false
   # _hardware_projects
   - scope:
